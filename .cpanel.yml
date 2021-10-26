@@ -1,7 +1,7 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/u1118216/public_html/semesta/application
+    - export DEPLOYPATH=/home/u1118216/public_html/semesta/application/
     - /bin/cp -R controllers $DEPLOYPATH
     - /bin/cp -R helpers $DEPLOYPATH
     - /bin/cp -R models $DEPLOYPATH
