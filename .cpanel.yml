@@ -1,9 +1,14 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/u1118216/public_html/
-    - /bin/cp -R /semesta/application/controllers $DEPLOYPATH
-    - /bin/cp -R /semesta/application/helpers $DEPLOYPATH
-    - /bin/cp -R /semesta/application/models $DEPLOYPATH
-    - /bin/cp -R /semesta/application/views $DEPLOYPATH
+    - export DEPLOYPATH=/home/u1118216/public_html/semesta
+    - /bin/cp -R * /assets $DEPLOYPATH
+    - /bin/cp -R /application/controllers/Beranda.php $DEPLOYPATH
+    - /bin/cp -R /application/controllers/Sys.php $DEPLOYPATH
+    - /bin/cp -R /application/controllers/Admin.php $DEPLOYPATH
+    - /bin/cp -R /application/controllers/Teacher.php $DEPLOYPATH
+    - /bin/cp -R /application/controllers/Student.php $DEPLOYPATH
+    - /bin/cp -R /application/helpers/semesta_helper.php $DEPLOYPATH
+    - /bin/cp -R /application/models/Table_model.php $DEPLOYPATH
+    - /bin/cp -R * /application/views $DEPLOYPATH
     
