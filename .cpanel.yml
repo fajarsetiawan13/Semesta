@@ -6,5 +6,4 @@ deployment:
     - /bin/cp -R helpers/ $DEPLOYPATH
     - /bin/cp -R models/ $DEPLOYPATH
     - /bin/cp -R views/ $DEPLOYPATH
-    - /bin/cp -R ./assets/ $DEPLOYPATH
     
