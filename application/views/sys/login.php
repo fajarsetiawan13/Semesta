@@ -29,6 +29,11 @@
                                 </form>
                                 <hr>
                                 <div class="text-center">
+                                    For test, use this Account.<br>
+                                    Username : Fajar@semesta.sch.id<br>
+                                    Password : 12345678
+                                </div>
+                                <div class="text-center">
                                     Create a
                                     <a class="small" href="<?= base_url('sys/student_registration') ?>">Student </a>
                                     |
