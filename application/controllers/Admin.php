@@ -11,13 +11,16 @@ class Admin extends CI_Controller
 
     public function index()
     {
-        $data['title'] = "Dashboard - Admin";
+        $data['title'] = "Administrator";
+        $data['students'] = $this->db->get('students')->result_array();
+        $data['teachers'] = $this->db->get('teachers')->result_array();
 
+        // This Model is used to find out which "User Session" is currently active //
         $this->load->model('Table_model', 'table');
         $data['users'] = $this->table->getUserFull();
 
         // echo '<pre>';
-        // var_dump($users[0]['fname']);
+        // var_dump($);
         // die;
 
         $this->load->view('admin/admin_header', $data);
@@ -33,6 +36,7 @@ class Admin extends CI_Controller
         $data['students'] = $this->db->get('students')->result_array();
         $data['teachers'] = $this->db->get('teachers')->result_array();
 
+        // This Model is used to find out which "User Session" is currently active //
         $this->load->model('Table_model', 'table');
         $data['users'] = $this->table->getUserFull();
 
@@ -87,7 +91,7 @@ class Admin extends CI_Controller
         $this->db->update('teachers');
 
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Account has been Activated!</div>');
-        redirect('admin/teacher');
+        redirect('admin');
     }
 
     public function change_teacher()
@@ -100,7 +104,7 @@ class Admin extends CI_Controller
         $this->db->update('teachers');
 
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data has been changed successfully.</div>');
-        redirect('admin/teacher');
+        redirect('admin');
     }
 
     // Student's Data Function
@@ -130,7 +134,7 @@ class Admin extends CI_Controller
         $this->db->update('students');
 
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Account has been Activated!</div>');
-        redirect('admin/student');
+        redirect('admin');
     }
 
     public function change_student()
@@ -143,6 +147,6 @@ class Admin extends CI_Controller
         $this->db->update('students');
 
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data has been changed successfully.</div>');
-        redirect('admin/student');
+        redirect('admin');
     }
 }

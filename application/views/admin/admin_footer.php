@@ -58,6 +58,9 @@
 
 <!-- Page level custom scripts -->
 <script src="<?= base_url('assets/dashboard/'); ?>js/demo/datatables-demo.js"></script>
+<script src="<?= base_url('assets/dashboard/') ?>vendor/chart.js/Chart.min.js"></script>
+<script src="<?= base_url('assets/dashboard/') ?>js/chart/chart-bar-grade-subjects.js"></script>
+<script src="<?= base_url('assets/dashboard/') ?>js/chart/chart-bar-grade-class.js"></script>
 
 <!-- jsCSV -->
 <script src="<?= base_url('assets/dashboard/') ?>js/jscsv.js"></script>
@@ -77,7 +80,7 @@
         var doc = new jspdf.jsPDF();
 
         doc.autoTable({
-            html: '#myTable'
+            html: '#dataTable'
         })
 
         doc.save('table.pdf');
@@ -90,14 +93,14 @@
         const roleId = $(this).data('role');
 
         $.ajax({
-            url: "<?= base_url('admin/changeaccess'); ?>",
+            url: "<?= base_url('manage/changeaccess'); ?>",
             type: 'post',
             data: {
                 menuId: menuId,
                 roleId: roleId
             },
             success: function() {
-                document.location.href = "<?= base_url('admin/roleaccess/'); ?>" + roleId;
+                document.location.href = "<?= base_url('manage/roleaccess/'); ?>" + roleId;
             }
         });
     });

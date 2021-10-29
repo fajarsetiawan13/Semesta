@@ -3,9 +3,8 @@
 
     <!-- Page Heading -->
     <h1 class="h3 mb-4 text-gray-800"><?= $title; ?></h1>
-    <?= $this->session->flashdata('message'); ?>
 
-    <!-- DataTales-->
+    <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
             <h6 class="m-0 font-weight-bold text-primary">Teacher List</h6>
@@ -20,7 +19,7 @@
         </div>
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-bordered" id="myTable" width="100%" cellspacing="0">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
                             <th scope="col">Teacher ID</th>
@@ -55,7 +54,7 @@
                                     <?php endif; ?>
                                 </td>
                                 <td>
-                                    <a href="<?= base_url('admin/edit_teacher/') . $tc['teacher_ID']; ?>" class="badge badge-success">edit</a>
+                                    <a href="<?= base_url('admin/edit_teacher/') . $tc['teacher_ID']; ?>" class="btn btn-info btn-circle btn-sm" data-toggle="tooltip" data-placement="top" title="Change Teacher ID"><i class="fas fa-tools"></i></a>
                                 </td>
                             </tr>
                             <?php $i++; ?>
