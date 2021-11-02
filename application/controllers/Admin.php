@@ -63,6 +63,44 @@ class Admin extends CI_Controller
         $this->load->view('admin/admin_footer');
     }
 
+    public function messages()
+    {
+        $data['title'] = "Messages";
+        $data['message'] = $this->db->get('message')->result_array();
+
+        $this->load->model('Table_model', 'table');
+        $data['users'] = $this->table->getUserFull();
+
+        $this->load->view('admin/admin_header', $data);
+        $this->load->view('admin/admin_sidebar', $data);
+        $this->load->view('admin/admin_topbar', $data);
+        $this->load->view('admin/messages', $data);
+        $this->load->view('admin/admin_footer');
+    }
+
+    public function checkMessage($m)
+    {
+        $msg = $this->db->get_where('message', ['is_read' => $m])->row_array();
+
+        if ($msg['is_read'] == 0) {
+            $this->db->set('is_read', 1);
+        } else {
+            $this->db->set('is_read', 0);
+        }
+        $this->db->where('id', $m);
+        $this->db->update('message');
+        redirect('admin/messages');
+    }
+
+    public function deleteMessage($id)
+    {
+        $this->db->get('message')->result_array();
+
+        $this->db->where('id', $id);
+        $this->db->delete('message');
+
+        redirect('admin/messages');
+    }
 
     // Teacher's Data Function
     public function edit_teacher($tc)

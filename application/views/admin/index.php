@@ -80,6 +80,13 @@
             </div>
         </div>
 
+        <!-- QUERY MESSAGES -->
+        <?php
+        $queryMsg = "SELECT * FROM `message` 
+                             WHERE `message`.`is_read` = 0
+                        ";
+        $msg = $this->db->query($queryMsg)->result_array();
+        ?>
         <div class="col-xl-3 col-md-6 mb-4">
             <div class="card border-left-warning shadow h-100 py-2">
                 <div class="card-body">
@@ -87,10 +94,10 @@
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                                 New Message</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo (count($msg) > 0) ? count($msg) : '0' ?></div>
                         </div>
                         <div class="col-auto" data-toggle="tooltip" data-placement="top" title="Click to see details">
-                            <a href="#"><i class="fas fa-comments fa-2x text-gray-300"></i></a>
+                            <a href="<?= base_url('admin/messages') ?>"><i class="fas fa-comments fa-2x text-gray-300"></i></a>
                         </div>
                     </div>
                 </div>
